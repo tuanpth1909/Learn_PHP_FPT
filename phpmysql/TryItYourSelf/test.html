@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+
+class Car{
+   //Properties
+   public $name;
+   public $color;
+   public $price;
+
+   //Contructor
+   public Car($name, $color, $price){
+   $this->name = $name;
+   $this->color = $color;
+   $this->price = $price;
+     }
+
+//Method or Function
+function Display(){
+echo "It's the faster car";
+}
+}
+$mercedes = new Car("Mercedes","Black",15000);
+$mercedes->Display();
+?>
+
+</body>
+</html>

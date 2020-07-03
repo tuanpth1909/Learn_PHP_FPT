@@ -2,7 +2,7 @@
      $hn = "localhost";
      $un = "root";
      $pw = "";
-     $db = "people";
+     $db = "login";
 ?>
 
 <?php
