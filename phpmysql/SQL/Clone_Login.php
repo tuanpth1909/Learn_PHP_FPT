@@ -12,9 +12,6 @@
 _END;
 
 include ("login.php");
-
-
-
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     $username = get_post($conn, 'username');

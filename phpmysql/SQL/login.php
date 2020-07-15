@@ -2,7 +2,7 @@
      $hn = "localhost";
      $un = "root";
      $pw = "";
-     $db = "login";
+     $db = "ecommerce";
      $conn = new mysqli($hn, $un, $pw, $db);
      if($conn->connect_errno)
          die("Fatal Error");

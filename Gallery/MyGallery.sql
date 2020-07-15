@@ -1,6 +1,6 @@
 CREATE DATABASE gallery;
 USE gallery;
-CREATE TABLE gallery
+CREATE TABLE mygallery
 (
   idGallery int(11) AUTO_INCREMENT,
   titleGallery longtext CHARACTER SET latin1 NOT NULL,
