@@ -1,15 +1,15 @@
 <?php
-require_once '../../SQL/login.php';
+require_once '../includes/dbh.inc.php';
 $conn=new mysqli($hn,$un,$pw,$db);
 if ($conn->connect_error) die("Fatal Error");
 
 //Xử lý xóa:
-if (isset($_POST['delete']) && isset($_POST['idproduct'])){
-    $isbn=get_post($conn,'isbn');
-    $query="DELETE FROM product WHERE idproduct='$idproduct'";
-    $result=$conn->query($query);
-    if (!$result) echo "DELETE failed <BR><BR>";
-}
+//if (isset($_POST['delete']) && isset($_POST['idproduct'])){
+//    $isbn=get_post($conn,'isbn');
+//    $query="DELETE FROM product WHERE idproduct='$idproduct'";
+//    $result=$conn->query($query);
+//    if (!$result) echo "DELETE failed <BR><BR>";
+//}
 
 //hiển thị người dùng
 echo <<<_END
@@ -25,7 +25,7 @@ echo <<<_END
         <label for="">Image</label><br>
         <input type="file" name="file"><br>
       
-    <input type="submit" value="Add product">
+    <input type="submit" name="submit" value="Add product">
     </pre>
 </form>
 _END;
@@ -52,7 +52,7 @@ Price $r3
 </pre>
 <form action="addproduct.php" method="post">
 <input type="hidden" name="delete" value="yes">
-<input type="hidden" name="idproduct" value="$idproduct">
+<input type="hidden" name="idproduct" value="idproduct">
 <input type="submit" value="Delete product">
 </form>
 _END;

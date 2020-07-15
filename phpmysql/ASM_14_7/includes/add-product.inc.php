@@ -67,14 +67,14 @@
 //}
 
 if (isset($_POST['submit'])) {
-    $newFileName = $_POST['filename'];
+    $newFileName = $_POST['title'];
     if (empty($newFileName)) {
         $newFileName = "gallery";
     } else {
         $newFileName = strtolower(str_replace(" ", " ", $newFileName));
     }
-    $imageTitle = $_POST['filename'];
-    $imageDesc = $_POST['filedesc'];
+    $imageTitle = $_POST['title'];
+    $imageDesc = $_POST['description'];
 
     $file = $_FILES['file'];
     $fileName = $file['name'];
@@ -91,13 +91,13 @@ if (isset($_POST['submit'])) {
         if ($fileError === 0) {
             if ($fileSize < 3000000) {
                 $imageFullName = $newFileName . "." . uniqid("", true) . "." . $fileActuelExt;
-                $fileDestination = "../img/gallery/" . $imageFullName;
+                $fileDestination = "../footwear/images/" . $imageFullName;
                 include_once "dbh.inc.php";
                 if (empty($imageTitle) || empty($imageDesc)) {
-                    header("Location: ../gallery.php?upload=empty");
+                    header("Location: ../addproduct.php?upload=empty");
                     exit();
                 } else {
-                    $sql = "SELECT * FROM gallery;";
+                    $sql = "SELECT * FROM product;";
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         echo "SQL statement failed";
@@ -107,14 +107,14 @@ if (isset($_POST['submit'])) {
                         $rowCount = mysqli_num_rows($result);
                         $setImageOrder = $rowCount + 1;
 
-                        $sql = "INSERT INTO gallery (titleGallery,descGallery,imgFullNameGallery,orderGallery) values (?,?,?,?);";
+                        $sql = "INSERT INTO product (image, title, description, price) values (?,?,?,?);";
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
                             echo "SQL statement faled!";
                         } else {
-                            mysqli_stmt_bind_param($stmt, "ssss", $imageTitle, $imageDesc, $imageFullName, $setImageOrder);
+                            mysqli_stmt_bind_param($stmt, "ssss", $image, $title, $description, $price);
                             mysqli_stmt_execute($stmt);
                             move_uploaded_file($fileTempName, $fileDestination);
-                            header("Location: ../case.php?upload=success");
+                            header("Location: ../addproduct.php?upload=success");
                         }
                     }
                 }

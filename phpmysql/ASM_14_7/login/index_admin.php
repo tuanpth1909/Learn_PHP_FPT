@@ -22,17 +22,17 @@ if (isset($_GET['addproduct']))
 //chuyen den trang tim san pham
 if (isset($_GET['searchproduct']))
 {
-    header("Location: ../login/login.php");
+    header("Location: ../page/search.php");
 }
 
 //chuyen den trang xoa san pham
 if (isset($_GET['deleteproduct']))
 {
-    header("Location: ../login/login.php");
+    header("Location: ../page/delete.php");
 }
 
 //chuyen den trang update san pham
 if (isset($_GET['updateproduct']))
 {
-    header("Location: ../login/login.php");
+    header("Location: ../page/update.php");
 }
