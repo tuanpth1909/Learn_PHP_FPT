@@ -46,7 +46,7 @@ _END;
 //Tim product
 if (isset($_POST['search']) && isset($_POST['submit']))
 {
-    $query = "SELECT FROM product WHERE column LIKE ''";
+    $query = "SELECT FROM product WHERE column LIKE '%$search%'";
     $result = $conn->query($query);
     if (!$result) die("Database access failed");
 }

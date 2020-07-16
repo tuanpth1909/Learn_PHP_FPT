@@ -10,7 +10,6 @@
 </pre>
 </form>
 _END;
-
 include ("login.php");
 if(isset($_POST['username']) && isset($_POST['password']))
 {
@@ -19,7 +18,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
 
 
 
-    $query = "SELECT * FROM register WHERE username='$username' and password='$password'";
+    $query = "SELECT * FROM dangki WHERE username='$username' and password='$password'";
     //$result = mysqli_query($conn, $query);
     $result = $conn->query($query);
     $row = $result->num_rows;

@@ -36,7 +36,7 @@ if(isset($_POST['username']) && isset($_POST['password']) &&
     $phone = get_post($conn, 'phone');
     $fullname = get_post($conn, 'fullname');
 
-    $query = "INSERT INTO register(username, password, email, phone, fullname) VALUES"." ('$username','$password','$email','$phone','$fullname')";
+    $query = "INSERT INTO dangki(username, password, email, phone, fullname) VALUES"." ('$username','$password','$email','$phone','$fullname')";
     $result = $conn->query($query);
     if (!$result) echo "INSERT failed";
 }
