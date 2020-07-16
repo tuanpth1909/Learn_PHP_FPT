@@ -34,7 +34,16 @@ if (isset($_POST['fullname']) && isset($_POST['email']) &&
 
     $query = "INSERT INTO register(fullname, email, username, password) VALUES"."('$fullname', '$email','$username','$password')";
     $result = $conn->query($query);
-    if (!$result) echo "INSERT failed";
+    if (!$result)
+    {
+        echo "INSERT failed";
+    }else
+        {
+        setcookie('username', $username,time() + 3600 );
+        setcookie('fullname', $fullname,time() + 3600 );
+        header('Location: index.php');
+    }
+
 }
 
     //Xử lí kí tự đặc biệt
