@@ -45,7 +45,6 @@ if (isset($_POST['fullname']) && isset($_POST['email']) &&
     }
 
 }
-
     //Xử lí kí tự đặc biệt
 function get_post($conn, $var)
 {
